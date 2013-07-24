@@ -28,6 +28,7 @@ module MingleEvents
       # :card_type_name
       def for_card_event(card_event)
         if @card_data_by_number_and_version.nil?
+	  @card_events ||= [card_event]
           load_bulk_card_data
         end
         key = data_key(card_event.card_number, card_event.version)
